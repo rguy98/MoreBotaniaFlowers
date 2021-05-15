@@ -56,11 +56,6 @@ public class MoreBotaniaFlowers
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addGenericListener(Block.class, BotaniaBlocksExtended::registerBlocks);
         modBus.addGenericListener(Item.class, BotaniaBlocksExtended::registerItemBlocks);
-
-        BlockColors blocks = Minecraft.getInstance().getBlockColors();
-        blocks.register((state, world, pos, tintIndex) -> tintIndex == 0 ? ((BlockPetalBlockExtended) state.getBlock()).getColor() : -1,
-                BotaniaBlocksExtended.petalBlockAmber
-        );
     }
 
 
@@ -83,6 +78,11 @@ public class MoreBotaniaFlowers
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         registerRenderTypes();
+
+        BlockColors blocks = Minecraft.getInstance().getBlockColors();
+        blocks.register((state, world, pos, tintIndex) -> tintIndex == 0 ? ((BlockPetalBlockExtended) state.getBlock()).getColor() : -1,
+                BotaniaBlocksExtended.petalBlockAmber
+        );
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)

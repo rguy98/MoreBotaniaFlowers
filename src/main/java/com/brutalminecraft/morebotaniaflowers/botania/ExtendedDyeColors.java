@@ -57,7 +57,7 @@ public enum ExtendedDyeColors implements IStringSerializable {
         int j = (colorValueIn & '\uff00') >> 8;
         int k = (colorValueIn & 255) >> 0;
         this.swappedColorValue = k << 16 | j << 8 | i << 0;
-        this.tag = net.minecraft.tags.ItemTags.createOptional(new net.minecraft.util.ResourceLocation("forge", "dyes/" + translationKeyIn));
+        this.tag = net.minecraft.tags.ItemTags.createOptional(new net.minecraft.util.ResourceLocation("flamboyant", "dyes/" + translationKeyIn));
         this.colorComponentValues = new float[]{(float)i / 255.0F, (float)j / 255.0F, (float)k / 255.0F};
         this.fireworkColor = fireworkColorIn;
     }
